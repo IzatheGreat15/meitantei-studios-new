@@ -736,7 +736,7 @@ export default function Home() {
           </div>
 
           <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} Kathleen Monzales
+            © 2026 Kathleen Monzales
           </p>
         </div>
       </footer>
