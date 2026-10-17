@@ -3,7 +3,7 @@ import { DemoIcon } from "./icons";
 
 export default function Footer({ config }: { config: PlumbingDemoConfig }) {
   const serviceLinks = config.services.items.slice(0, 6);
-  const year = new Date().getFullYear();
+  const year = 2026;
   return (
     <footer className="text-white" style={{ background: "var(--brand-secondary)" }}>
       <div className="mx-auto grid max-w-7xl gap-9 px-5 py-10 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.3fr_.8fr_1fr_1fr] lg:px-10">
