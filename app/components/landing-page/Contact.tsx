@@ -14,7 +14,7 @@ export default function Contact() {
       <div className="relative mx-auto grid max-w-7xl items-start gap-12 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         {/* Left: Contact information */}
         <div className="flex flex-col lg:sticky lg:top-24">
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[10px] font-extrabold uppercase tracking-wider text-sky-300">
+          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[10px] font-extrabold uppercase tracking-wider text-[var(--brand-primary)]">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             Let’s work together
           </span>
@@ -37,21 +37,21 @@ export default function Contact() {
               href="mailto:monzalesiza@gmail.com"
               className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-sky-400/40 hover:bg-white/[0.06]"
             >
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sky-400/10 text-lg text-sky-300">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sky-400/10 text-lg text-[var(--brand-primary)]">
                 <FiMail />
               </span>
               <span className="min-w-0">
                 <span className="block text-xs text-slate-400">
                   Email me
                 </span>
-                <span className="mt-1 block break-all text-sm font-semibold text-slate-100 transition group-hover:text-sky-300">
+                <span className="mt-1 block break-all text-sm font-semibold text-slate-100 transition group-hover:text-[var(--brand-primary)]">
                   monzalesiza@gmail.com
                 </span>
               </span>
             </a>
 
             <div className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-4">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sky-400/10 text-lg text-sky-300">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sky-400/10 text-lg text-[var(--brand-primary)]">
                 <FiMapPin />
               </span>
               <span>

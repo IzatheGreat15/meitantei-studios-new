@@ -1,11 +1,15 @@
 import {
   FaArrowRight, FaBath, FaCalendarAlt, FaCheck, FaChevronDown, FaClock,
-  FaFacebookF, FaGoogle, FaHome, FaInstagram, FaLeaf, FaMapMarkerAlt,
+  FaFacebookF, FaGoogle, FaHome, FaInstagram, FaLayerGroup, FaLeaf, FaMapMarkerAlt,
   FaPhoneAlt, FaShieldAlt, FaStar, FaTools, FaUsers, FaWater, FaWrench,
 } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi";
 import type { IconType } from "react-icons";
-import { FaDroplet } from "react-icons/fa6";
+import { FaCircleCheck, FaClipboardList, FaDoorOpen, FaDroplet, FaHammer, FaHouse } from "react-icons/fa6";
+import { MdElectricBolt } from "react-icons/md";
+import { HiBuildingOffice } from "react-icons/hi2";
+import { IoShieldCheckmark } from "react-icons/io5";
+import { AiFillMessage } from "react-icons/ai";
 
 const icons: Record<string, IconType> = {
   arrow: FaArrowRight, bath: FaBath, calendar: FaCalendarAlt, check: FaCheck,
@@ -13,7 +17,9 @@ const icons: Record<string, IconType> = {
   google: FaGoogle, home: FaHome, instagram: FaInstagram, leaf: FaLeaf,
   map: FaMapMarkerAlt, phone: FaPhoneAlt, shield: FaShieldAlt, star: FaStar,
   tool: FaTools, users: FaUsers, water: FaWater, pipes: FaWrench,
-  menu: FiMenu, close: FiX,
+  menu: FiMenu, close: FiX, zap: MdElectricBolt, hammer: FaHammer, building: HiBuildingOffice,
+  layers: FaLayerGroup, 'door-open': FaDoorOpen, house: FaHouse, 'shield-check': IoShieldCheckmark,
+  'message-circle': AiFillMessage, 'clipboard-list': FaClipboardList, 'check-circle': FaCircleCheck
 };
 
 export function DemoIcon({

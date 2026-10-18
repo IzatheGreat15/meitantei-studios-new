@@ -15,9 +15,13 @@ export default function Navbar({ config }: { config: PlumbingDemoConfig }) {
     <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur">
       <div className="mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <a href="#home" className="flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
-          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl text-2xl text-white" style={{ background: "var(--brand-primary)" }}>
-            <DemoIcon name="droplet" />
-          </span>
+          {
+            config.logo ? <img className="w-11 object-cover" src={config.logo} /> : (
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl text-2xl text-white" style={{ background: "var(--brand-primary)" }}>
+                <DemoIcon name="droplet" />
+              </span>
+            )
+          }
           <span className="leading-tight">
             <span className="block text-base font-extrabold tracking-tight text-slate-900 sm:text-lg">{config.brand.name}</span>
             <span className="hidden text-[10px] font-semibold uppercase tracking-[.15em] text-slate-500 sm:block">{config.brand.tagline ?? "Plumbing & Maintenance"}</span>

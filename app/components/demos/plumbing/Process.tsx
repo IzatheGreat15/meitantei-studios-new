@@ -12,7 +12,7 @@ export default function Process({ config }: { config: PlumbingDemoConfig }) {
             <div key={step.title} className="relative flex gap-3">
               <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-sm font-extrabold text-white" style={{ background: "var(--brand-primary)" }}>{index + 1}</span>
               <div><DemoIcon name={step.icon} className="mb-2 text-2xl text-[var(--brand-primary)]" /><h3 className="text-sm font-extrabold">{step.title}</h3><p className="mt-1 text-xs leading-5 text-slate-500">{step.description}</p></div>
-              {index < config.process.length - 1 && <span className="absolute right-0 top-2 hidden text-xl text-sky-300 lg:block">→</span>}
+              {index < config.process.length - 1 && <span className="absolute right-0 top-2 hidden text-xl text-[var(--brand-primary)] lg:block">→</span>}
             </div>
           ))}
         </div>

@@ -21,6 +21,7 @@ export type PlumbingReview = {
 
 export type PlumbingDemoConfig = {
   slug: string;
+  logo?: string,
   brand: {
     name: string;
     shortName?: string;
@@ -43,6 +44,7 @@ export type PlumbingDemoConfig = {
     description: string;
     backgroundImage: string;
     primaryCta: string;
+    alignment?: string;
   };
   trustHighlights: { title: string; description: string; icon: string }[];
   services: {
