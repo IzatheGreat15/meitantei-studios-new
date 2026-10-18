@@ -8,7 +8,7 @@ export default function Footer({
   config: PlumbingDemoConfig;
 }) {
   const serviceLinks = config.services.items.slice(0, 6);
-  const year = new Date().getFullYear();
+  const year = 2026;
 
   return (
     <footer

@@ -3,6 +3,7 @@ export type PlumbingService = {
   description: string;
   image: string;
   icon: string;
+  items?: string[];
 };
 
 export type PlumbingProject = {
