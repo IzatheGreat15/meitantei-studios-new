@@ -511,7 +511,7 @@ export const plumbingDemos: Record<string, PlumbingDemoConfig> = {
     contact: {
       phone: "08 6219 3687",
       email: "",
-      address: "Perth, WA, Australia",
+      address: "Samuel place, Perth, Western Australia 6065",
       businessHours: "",
       emergencyText: "Get in touch to discuss your project",
     },
@@ -544,7 +544,7 @@ export const plumbingDemos: Record<string, PlumbingDemoConfig> = {
         description:
           "Practical timber solutions tailored to your space and requirements.",
         icon: "hammer",
-     },
+      },
       {
         title: "Helpful Advice",
         description:
