@@ -6,6 +6,41 @@ type Props = {
   config: PetGroomingConfig;
 };
 
+type MessengerButtonProps = {
+  url: string;
+};
+
+function MessengerButton({
+  url,
+}: MessengerButtonProps) {
+  if (!url) return null;
+
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with us on Facebook Messenger"
+      className="fixed bottom-5 right-5 z-50 flex items-center gap-3
+        rounded-full bg-[#0084FF] px-5 py-3.5 font-semibold
+        text-white shadow-lg transition hover:scale-105
+        hover:bg-[#006FE6] focus-visible:outline-2
+        focus-visible:outline-offset-2 focus-visible:outline-[#0084FF]"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        className="h-6 w-6"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M12 2C6.48 2 2 6.17 2 11.32c0 2.93 1.44 5.55 3.7 7.25V22l3.4-1.87c.92.25 1.9.39 2.9.39 5.52 0 10-4.17 10-9.2C22 6.17 17.52 2 12 2Zm1 12.4-2.55-2.72-4.98 2.72 5.48-5.82 2.62 2.72 4.91-2.72L13 14.4Z" />
+      </svg>
+
+      <span>Chat with us</span>
+    </a>
+  );
+}
+
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[var(--pet-accent)]">
@@ -678,6 +713,8 @@ export default function PetGroomingDemo({ config }: Props) {
       </main>
 
       <Footer config={config} />
+
+      { config.contact.messengerUrl && <MessengerButton url={config.contact.messengerUrl} /> }
     </div>
   );
 }

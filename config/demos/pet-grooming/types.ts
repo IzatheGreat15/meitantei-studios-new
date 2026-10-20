@@ -10,6 +10,7 @@ export type PetGroomingConfig = {
     email: string;
     address: string;
     hours: string;
+    messengerUrl?: string;
   };
   hero: {
     eyebrow: string;

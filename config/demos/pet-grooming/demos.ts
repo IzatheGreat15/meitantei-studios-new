@@ -28,6 +28,7 @@ const petGroomingDemo: Record<string, PetGroomingConfig> = {
       email: "paws4perfdg@gmail.com",
       address: "161 Blackall drive , Greenwood, WA, Australia, 6024",
       hours: "Contact us for opening hours",
+      messengerUrl: "https://www.facebook.com/profile.php?id=61593306245153",
     },
 
     hero: {
