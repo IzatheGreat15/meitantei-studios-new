@@ -1,6 +1,7 @@
 
 import { PetGroomingConfig } from "@/config/demos/pet-grooming/types";
 import Link from "next/link";
+import { DemoIcon } from "../plumbing/icons";
 
 type Props = {
   config: PetGroomingConfig;
@@ -427,8 +428,8 @@ function About({ config }: Props) {
           <div className="grid gap-5 sm:grid-cols-2">
             {config.about.benefits.map((benefit) => (
               <div key={benefit.title}>
-                <span className="text-2xl" aria-hidden="true">
-                  {benefit.icon}
+                <span className="text-2xl text-[var(--pet-primary)]" aria-hidden="true">
+                  <DemoIcon name={benefit.icon} />
                 </span>
                 <h3 className="mt-2 font-bold text-[var(--pet-primary)]">
                   {benefit.title}

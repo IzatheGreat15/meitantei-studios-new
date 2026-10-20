@@ -5,9 +5,9 @@ import {
 } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi";
 import type { IconType } from "react-icons";
-import { FaCircleCheck, FaClipboardList, FaDoorOpen, FaDroplet, FaHammer, FaHouse } from "react-icons/fa6";
+import { FaCircleCheck, FaClipboardList, FaDoorOpen, FaDroplet, FaHammer, FaHeart, FaHouse, FaPaw, FaScissors } from "react-icons/fa6";
 import { MdElectricBolt } from "react-icons/md";
-import { HiBuildingOffice } from "react-icons/hi2";
+import { HiBuildingOffice, HiSparkles } from "react-icons/hi2";
 import { IoShieldCheckmark } from "react-icons/io5";
 import { AiFillMessage } from "react-icons/ai";
 
@@ -19,7 +19,8 @@ const icons: Record<string, IconType> = {
   tool: FaTools, users: FaUsers, water: FaWater, pipes: FaWrench,
   menu: FiMenu, close: FiX, zap: MdElectricBolt, hammer: FaHammer, building: HiBuildingOffice,
   layers: FaLayerGroup, 'door-open': FaDoorOpen, house: FaHouse, 'shield-check': IoShieldCheckmark,
-  'message-circle': AiFillMessage, 'clipboard-list': FaClipboardList, 'check-circle': FaCircleCheck
+  'message-circle': AiFillMessage, 'clipboard-list': FaClipboardList, 'check-circle': FaCircleCheck,
+  heart: FaHeart, paw: FaPaw, scissor: FaScissors, sparkles: HiSparkles
 };
 
 export function DemoIcon({
