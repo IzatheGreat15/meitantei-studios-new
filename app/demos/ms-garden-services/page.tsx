@@ -20,7 +20,7 @@ import {
 import { FaFacebook, FaInstagram } from "react-icons/fa6";
 
 const BRAND = {
-  name: "JR Garden Services",
+  name: "MS Garden Services",
   primary: "#0B3022",
   dark: "#062419",
   gold: "#E6C477",
@@ -29,9 +29,9 @@ const BRAND = {
 };
 
 const CONTACT = {
-  phone: "0426 519 119",
-  phoneLink: "tel:0426519119",
-  email: "jasonr04@hotmail.com",
+  phone: "0424 514 869",
+  phoneLink: "tel:0424514869",
+  email: "sherlock@hotmail.com",
   serviceArea: "Perth's Northern Suburbs",
   hours: "Mon – Sat: 7:00am – 5:00pm",
 };
@@ -190,7 +190,7 @@ function BrandLogo({ light = true }: { light?: boolean }) {
             light ? "text-[#E6C477]" : "text-[#0B3022]"
           }`}
         >
-          JR
+          MS
         </span>
         <span
           className={`mt-1 block text-[10px] font-semibold uppercase tracking-[0.13em] ${
@@ -864,7 +864,7 @@ function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-5 text-xs text-white/50 sm:px-8 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 JR Garden Services. All rights reserved.</p>
+          <p>© 2026 MS Garden Services. All rights reserved.</p>
           <a href="#home" className="hover:text-[#E6C477]">
             Back to top ↑
           </a>

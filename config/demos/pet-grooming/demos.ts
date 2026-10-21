@@ -2,33 +2,32 @@
 import { PetGroomingConfig } from "./types";
 
 const petGroomingDemo: Record<string, PetGroomingConfig> = {
-    "paws-for-perfection": {
-        slug: "paws-for-perfection",
+    "paws-and-polish": {
+        slug: "paws-and-polish",
 
         brand: {
-            name: "Paws for Perfection",
+            name: "Paws & Polish",
             descriptor: "Dog Grooming",
-            logoText: "Paws for Perfection",
+            logoText: "Paws & Polish",
         },
 
         brandColors: {
-            background: "#FBF9FF",
-            surface: "#F0EAFE",
-            primary: "#17131F",
-            secondary: "#2D2340",
-            accent: "#B7A1E8",
-            text: "#201B29",
-            mutedText: "#6D6578",
-            border: "#E5DDF3",
+            background: "#FAF8F2",
+            surface: "#EEF1E8",
+            primary: "#55745A",
+            secondary: "#344B39",
+            accent: "#D9B98C",
+            text: "#292E28",
+            mutedText: "#73796F",
+            border: "#DFE4D9",
         },
 
         contact: {
             // Replace with the client's actual contact information.
-            phone: "+61 428 994 040",
-            email: "paws4perfdg@gmail.com",
-            address: "161 Blackall drive , Greenwood, WA, Australia, 6024",
+            phone: "+61 422 904 115",
+            email: "pawsandpolish@gmail.com",
+            address: "123 Pawfect Lane, Greenwood, WA, Australia, 6024",
             hours: "Contact us for opening hours",
-            messengerUrl: "https://www.facebook.com/profile.php?id=61593306245153",
         },
 
         hero: {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Kathleen Monzales | Web Developer",
+  title: "Meitantei Studios | Web Developer",
   description:
     "Modern, responsive websites for Australian small businesses.",
 };

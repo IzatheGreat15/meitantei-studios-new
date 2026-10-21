@@ -66,6 +66,7 @@ export const plumbingDemos: Record<string, PlumbingDemoConfig> = {
       description: "Fast, professional and affordable plumbing services for homes and businesses across Perth.",
       backgroundImage: img("photo-1607472586893-edb57bdc0e39"),
       primaryCta: "Get a Free Quote",
+      alignment: "center",
     },
     trustHighlights: [
       { title: "Local & Family Owned", description: "Proudly supporting our local community.", icon: "users" },
@@ -157,6 +158,7 @@ export const plumbingDemos: Record<string, PlumbingDemoConfig> = {
       description: "Straightforward advice, quality workmanship and dependable plumbing for homes and businesses.",
       backgroundImage: img("photo-1607472586893-edb57bdc0e39"),
       primaryCta: "Request a Quote",
+      alignment: "center",
     },
     trustHighlights: [
       { title: "Locally Focused", description: "Proud to help homes and businesses in our community.", icon: "users" },

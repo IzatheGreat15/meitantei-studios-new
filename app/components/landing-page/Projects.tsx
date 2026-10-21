@@ -2,31 +2,34 @@ import { FiArrowUpRight, FiLink } from "react-icons/fi";
 
 const concepts = [
   {
-    name: "Riverside Plumbing",
-    category: "PLUMBING · PERTH",
-    description:
-      "A professional website designed to turn visitors into quote requests.",
-    image:
-      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1000&q=85",
-    initials: "RP",
-  },
-  {
-    name: "GreenScape Landscaping",
+    name: "MS Garden Services",
     category: "LANDSCAPING · SYDNEY",
     description:
       "A visual-first website concept for showcasing landscaping services.",
     image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=85",
+      "/gardening.png",
     initials: "GS",
+    link: "/demos/ms-garden-services"
   },
   {
-    name: "PestSafe Solutions",
-    category: "PEST CONTROL · PERTH",
+    name: "West Coast Plumbing",
+    category: "PLUMBING · PERTH",
+    description:
+      "A professional website designed to turn visitors into quote requests.",
+    image:
+      "/plumbing.png",
+    initials: "RP",
+    link: "/demos/pb/plumbing-2"
+  },
+  {
+    name: "Paws & Polish",
+    category: "Dog Grooming · PERTH",
     description:
       "A clear, mobile-friendly concept with service information and calls to action.",
     image:
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85",
-    initials: "PS",
+      "/pet-grooming.png",
+    initials: "PP",
+    link: "/demos/pg/paws-and-polish",
   },
 ];
 
@@ -72,11 +75,11 @@ export default function Projects() {
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                 />
 
-                <span className="absolute right-3 top-3 rounded-full bg-white px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-wide text-blue-700 shadow-sm">
+                <span className="absolute right-3 top-3 rounded-full bg-sky-100 px-3 py-1.5 text-[9px] font-extrabold uppercase tracking-wide text-blue-700 shadow-sm">
                   Website concept
                 </span>
 
-                <span className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-xl bg-white px-3 py-2 text-xs font-extrabold text-slate-900 shadow-md">
+                <span className="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-xl bg-sky-100 px-3 py-2 text-xs font-extrabold text-slate-900 shadow-md">
                   <span className="grid h-7 w-7 place-items-center rounded-lg bg-blue-600 text-[10px] text-white">
                     {project.initials}
                   </span>
@@ -104,7 +107,7 @@ export default function Projects() {
                   </span>
 
                   <a
-                    href="#contact"
+                    href={project.link}
                     aria-label={`Discuss a website like ${project.name}`}
                     className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-slate-200 transition hover:border-blue-300 hover:bg-blue-50"
                   >

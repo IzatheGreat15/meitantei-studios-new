@@ -34,7 +34,7 @@ export default function Contact() {
 
           <div className="mt-8 space-y-4">
             <a
-              href="mailto:monzalesiza@gmail.com"
+              href="mailto:meitanteistudios@gmail.com"
               className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-sky-400/40 hover:bg-white/[0.06]"
             >
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sky-400/10 text-lg text-[var(--brand-primary)]">
@@ -45,7 +45,7 @@ export default function Contact() {
                   Email me
                 </span>
                 <span className="mt-1 block break-all text-sm font-semibold text-slate-100 transition group-hover:text-[var(--brand-primary)]">
-                  monzalesiza@gmail.com
+                  meitanteistudios@gmail.com
                 </span>
               </span>
             </a>
@@ -84,7 +84,7 @@ export default function Contact() {
           </div>
 
           <form
-            action="mailto:monzalesiza@gmail.com"
+            action="mailto:meitanteistudios@gmail.com"
             method="post"
             encType="text/plain"
             className="space-y-5"

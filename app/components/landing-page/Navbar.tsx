@@ -18,13 +18,11 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur-xl">
       <div className="mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
         <a href="#home" className="flex shrink-0 items-center gap-3">
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--brand-blue)] text-sm font-black text-white shadow-md shadow-blue-200">
-            KM
-          </span>
+          <img src="/profile.png" className="w-10 h-10" />
 
           <span>
             <span className="block text-sm font-extrabold text-slate-900">
-              Kathleen Monzales
+              Meitantei Studios
             </span>
             <span className="block text-[11px] text-slate-500">
               Web Developer

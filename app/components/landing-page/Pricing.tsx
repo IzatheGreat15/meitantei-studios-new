@@ -13,6 +13,7 @@ const plans = [
     name: "Business Website",
     subtitle: "Get noticed online and attract more customers",
     price: "A$1,299",
+    discount_price: "A$999",
     cadence: "one-time payment",
     icon: FiLayers,
     featured: true,
@@ -86,15 +87,15 @@ export default function Pricing() {
               icon: Icon,
               featured,
               features,
+              discount_price,
               cta,
             }) => (
               <article
                 key={name}
-                className={`relative flex h-full flex-col rounded-2xl bg-white p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-7 ${
-                  featured
+                className={`relative flex h-full flex-col rounded-2xl bg-white p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-7 ${featured
                     ? "border-2 border-blue-500 shadow-lg shadow-blue-100/70 lg:scale-[1.02]"
                     : "border border-slate-200 shadow-sm"
-                }`}
+                  }`}
               >
                 {/* Featured badge */}
                 {featured && (
@@ -120,9 +121,23 @@ export default function Pricing() {
 
                 {/* Price */}
                 <div className="mt-2 min-h-[5.5rem] border-b border-slate-100 pb-5">
-                  <p className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
-                    {price}
-                  </p>
+                  <div className="flex flex-wrap items-baseline gap-2">
+                    {discount_price ? (
+                      <>
+                        <p className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+                          {discount_price}
+                        </p>
+
+                        <p className="text-lg font-medium text-slate-400 line-through">
+                          {price}
+                        </p>
+                      </>
+                    ) : (
+                      <p className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+                        {price}
+                      </p>
+                    )}
+                  </div>
 
                   <p className="mt-2 text-xs text-slate-500">
                     {cadence}
@@ -145,11 +160,10 @@ export default function Pricing() {
                 {/* CTA */}
                 <a
                   href="#contact"
-                  className={`mt-auto flex min-h-12 w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-extrabold transition focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 ${
-                    featured
+                  className={`mt-auto flex min-h-12 w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-extrabold transition focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 ${featured
                       ? "bg-[var(--brand-blue)] text-white hover:bg-[var(--brand-blue-dark)]"
                       : "border border-slate-200 text-slate-800 hover:border-blue-300 hover:bg-blue-50"
-                  }`}
+                    }`}
                 >
                   {cta}
                   <FiArrowRight className="shrink-0" />

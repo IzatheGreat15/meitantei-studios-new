@@ -68,7 +68,7 @@ export default function Hero() {
               <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
 
               <div className="ml-3 flex-1 truncate rounded-md bg-slate-50 px-3 py-1.5 text-[10px] text-slate-400">
-                example-business.com.au
+                west-coast-plumbing.com.au
               </div>
             </div>
 
@@ -83,7 +83,7 @@ export default function Hero() {
 
               <div className="relative flex min-h-[320px] max-w-md flex-col items-start justify-center p-6 text-white sm:min-h-[390px] sm:p-9">
                 <span className="mb-4 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider">
-                  Example website concept
+                  West Coast Plumbing
                 </span>
 
                 <h2 className="text-3xl font-black leading-tight sm:text-4xl">

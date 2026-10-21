@@ -11,13 +11,11 @@ export default function Footer() {
           href="#home"
           className="flex items-center gap-3 justify-self-center md:justify-self-start"
         >
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-[var(--brand-blue)] text-xs font-black">
-            KM
-          </span>
+          <img src="/profile.png" className="w-10 h-10" />
 
           <span>
             <strong className="block text-xs">
-              Kathleen Monzales
+              Meitantei Studios
             </strong>
             <small className="text-[10px] text-slate-400">
               Web Developer
@@ -46,7 +44,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="text-center text-[10px] text-slate-500 md:justify-self-end md:text-right">
-          © 2026 Kathleen Monzales.
+          © 2026 Meitantei Studios.
           <span className="md:block"> All rights reserved.</span>
         </p>
 
