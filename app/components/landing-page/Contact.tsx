@@ -1,7 +1,91 @@
 
+"use client";
+
+import { useState, type FormEvent } from "react";
 import { FiArrowRight, FiMail, FiMapPin } from "react-icons/fi";
 
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setFeedback(null);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: String(formData.get("name") ?? "").trim(),
+      email: String(formData.get("email") ?? "").trim(),
+      service: String(formData.get("service") ?? "").trim(),
+      details: String(formData.get("details") ?? "").trim(),
+    };
+
+    try {
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const responseText = await response.text();
+
+      let result: { message?: string };
+
+      try {
+        result = JSON.parse(responseText);
+      } catch {
+        console.error("API returned non-JSON response:", responseText);
+
+        throw new Error(
+          `The server returned an unexpected response (HTTP ${response.status}). Check the terminal for errors.`
+        );
+      }
+
+      if (!response.ok) {
+        throw new Error(
+          result.message || `Request failed (HTTP ${response.status}).`
+        );
+      }
+
+
+      if (!response.ok) {
+        throw new Error(
+          result.message || "Unable to send your enquiry. Please try again."
+        );
+      }
+
+      setFeedback({
+        type: "success",
+        message:
+          "Thanks for reaching out! Your enquiry has been sent successfully.",
+      });
+
+      form.reset();
+    } catch (error) {
+      setFeedback({
+        type: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Something went wrong. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <section
       id="contact"
@@ -83,17 +167,13 @@ export default function Contact() {
             </p>
           </div>
 
-          <form
-            action="mailto:meitanteistudios@gmail.com"
-            method="post"
-            encType="text/plain"
-            className="space-y-5"
-          >
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="block text-xs font-semibold text-slate-300">
                 Your name
                 <input
                   required
+                  maxLength={120}
                   name="name"
                   placeholder="Your name"
                   autoComplete="name"
@@ -106,6 +186,7 @@ export default function Contact() {
                 <input
                   required
                   type="email"
+                  maxLength={254}
                   name="email"
                   placeholder="you@example.com"
                   autoComplete="email"
@@ -137,6 +218,7 @@ export default function Contact() {
               Project details
               <textarea
                 required
+                maxLength={5000}
                 name="details"
                 rows={5}
                 placeholder="Tell me about your business, goals, and what you need..."
@@ -146,11 +228,25 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[var(--brand-blue)] px-5 py-3.5 text-sm font-extrabold text-white transition hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-[#050d20]"
+              disabled={isSubmitting}
+              className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[var(--brand-blue)] px-5 py-3.5 text-sm font-extrabold text-white transition hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-[#050d20] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Send enquiry
-              <FiArrowRight className="text-base" />
+              {isSubmitting ? "Sending..." : "Send enquiry"}
+              {!isSubmitting && <FiArrowRight className="text-base" />}
             </button>
+
+            {feedback && (
+              <p
+                role="status"
+                aria-live="polite"
+                className={`rounded-xl border p-3 text-sm ${feedback.type === "success"
+                    ? "border-emerald-400/20 bg-emerald-400/10 text-emerald-300"
+                    : "border-red-400/20 bg-red-400/10 text-red-300"
+                  }`}
+              >
+                {feedback.message}
+              </p>
+            )}
           </form>
 
           <p className="mt-4 text-center text-xs leading-5 text-slate-500">
