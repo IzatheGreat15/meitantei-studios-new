@@ -76,7 +76,7 @@ function SectionHeading({
     <div className={`${centered ? "mx-auto text-center" : ""} max-w-2xl`}>
       <p
         className="mb-3 text-xs font-bold uppercase tracking-[0.2em]"
-        style={{ color: light ? "#67D8F2" : "#0878D1" }}
+        style={{ color: light ? "var(--brand-accent)" : "var(--brand-primary)" }}
       >
         {eyebrow}
       </p>
@@ -250,7 +250,12 @@ function Hero({ config }: Props) {
         />
       </div>
 
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-white via-sky/90 to-sky/30" />
+      <div
+        className="absolute inset-0 -z-10"
+        style={{
+          backgroundImage: `linear-gradient(to right, #ffffff 0%, ${brand.accentColor}33 60%, ${brand.primaryColor}22 100%)`,
+        }}
+      />
 
       <div className="mx-auto grid min-h-[570px] max-w-7xl items-center gap-10 px-5 py-20 lg:grid-cols-2 lg:px-8">
         <div className="max-w-2xl">
@@ -360,7 +365,11 @@ function Services({ config }: Props) {
   const { services, brand } = config;
 
   return (
-    <section id="services" className="bg-sky-100/60 py-20 sm:py-24">
+    <section
+      id="services"
+      className="py-20 sm:py-24"
+      style={{ backgroundColor: `${brand.accentColor}12` }}
+    >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <SectionHeading
@@ -438,7 +447,10 @@ function About({ config }: Props) {
             className="object-cover"
           />
           <div className="absolute inset-x-5 bottom-5 rounded-2xl bg-slate-950/85 p-6 text-white backdrop-blur sm:inset-x-7 sm:bottom-7">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky-300">
+            <p
+              className="text-xs font-bold uppercase tracking-[0.18em]"
+              style={{ color: brand.accentColor }}
+            >
               More than just air conditioning
             </p>
             <h3 className="mt-3 text-2xl font-extrabold">
@@ -651,62 +663,53 @@ function ServiceAreas({ config }: Props) {
 }
 
 function QuoteForm({ config }: Props) {
-  const { brand, contact, quote } = config;
-  const [sending, setSending] = useState(false);
+  const { brand, contact, quote, hero } = config;
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
 
-  async function submit(event: FormEvent<HTMLFormElement>) {
+  function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSending(true);
-    setError("");
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch("/api/quotes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...Object.fromEntries(formData.entries()),
-          businessName: brand.name,
-          businessEmail: contact.email,
-          demoSlug: config.slug,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Unable to submit your enquiry. Please try again.");
-      }
-
-      setSubmitted(true);
-      form.reset();
-    } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "Something went wrong. Please try again."
-      );
-    } finally {
-      setSending(false);
-    }
+    setSubmitted(true);
   }
 
   return (
     <section
       id="quote"
-      className="relative overflow-hidden py-20 sm:py-24"
+      className="relative isolate overflow-hidden py-20 sm:py-24"
       style={{ backgroundColor: brand.secondaryColor }}
     >
+      {/* Background image */}
+      <div className="absolute inset-0 -z-20">
+        <Image
+          src={quote.backgroundImage}
+          alt=""
+          fill
+          unoptimized
+          sizes="100vw"
+          className="object-cover"
+        />
+      </div>
+
+      {/* Dark overlay to keep text readable */}
+      <div
+        className="absolute inset-0 -z-10"
+        style={{
+          backgroundColor: `${brand.secondaryColor}E8`,
+        }}
+      />
+
       <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-2 lg:items-center lg:px-8">
         <div className="text-white">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-sky-300">
+          <p
+            className="text-xs font-bold uppercase tracking-[0.2em]"
+            style={{ color: brand.accentColor }}
+          >
             {quote.eyebrow}
           </p>
+
           <h2 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
             {quote.title}
           </h2>
+
           <p className="mt-5 max-w-lg text-base leading-8 text-slate-300">
             {quote.description}
           </p>
@@ -740,25 +743,32 @@ function QuoteForm({ config }: Props) {
 
         <div className="rounded-3xl bg-white p-6 shadow-2xl sm:p-9">
           {submitted ? (
-            <div className="py-12 text-center">
+            <div
+              role="status"
+              className="py-12 text-center"
+            >
               <CheckCircle2
                 size={48}
                 className="mx-auto"
                 style={{ color: brand.primaryColor }}
               />
+
               <h3 className="mt-5 text-2xl font-bold text-slate-950">
-                Thank you for your enquiry!
+                Demo Enquiry Received!
               </h3>
-              <p className="mt-3 text-sm text-slate-600">
-                Your request has been submitted.
+
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                This is a demo website. Your information has not been sent
+                or saved, and the business has not received your enquiry.
               </p>
+
               <button
                 type="button"
                 onClick={() => setSubmitted(false)}
                 className="mt-6 text-sm font-bold"
                 style={{ color: brand.primaryColor }}
               >
-                Send another request
+                Try the form again
               </button>
             </div>
           ) : (
@@ -766,25 +776,43 @@ function QuoteForm({ config }: Props) {
               <h3 className="text-2xl font-extrabold text-slate-950">
                 Request a Free Quote
               </h3>
+
               <p className="mt-2 text-sm text-slate-500">
                 Tell us about your air conditioning or refrigeration needs.
               </p>
 
+              {/* Demo notification */}
+              <div
+                role="note"
+                className="mt-5 rounded-xl border px-4 py-3 text-sm leading-6"
+                style={{
+                  borderColor: `${brand.primaryColor}40`,
+                  backgroundColor: `${brand.primaryColor}0D`,
+                  color: brand.secondaryColor,
+                }}
+              >
+                <strong>Demo only:</strong> This form is for demonstration
+                purposes. Submissions will not be sent to the business.
+              </div>
+
               <form onSubmit={submit} className="mt-7 space-y-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <Field label="Full name" name="name" required />
+
                   <Field
                     label="Phone number"
                     name="phone"
                     type="tel"
                     required
                   />
+
                   <Field
                     label="Email address"
                     name="email"
                     type="email"
                     required
                   />
+
                   <Field label="Suburb" name="suburb" required />
                 </div>
 
@@ -795,6 +823,7 @@ function QuoteForm({ config }: Props) {
                   >
                     Service needed *
                   </label>
+
                   <div className="relative">
                     <select
                       id="hvac-service"
@@ -806,12 +835,14 @@ function QuoteForm({ config }: Props) {
                       <option value="" disabled>
                         Select a service
                       </option>
+
                       {quote.services.map((service) => (
                         <option key={service} value={service}>
                           {service}
                         </option>
                       ))}
                     </select>
+
                     <ChevronDown
                       size={17}
                       className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"
@@ -826,6 +857,7 @@ function QuoteForm({ config }: Props) {
                   >
                     Project details
                   </label>
+
                   <textarea
                     id="hvac-message"
                     name="message"
@@ -836,24 +868,17 @@ function QuoteForm({ config }: Props) {
                   />
                 </div>
 
-                {error && (
-                  <p role="alert" className="text-sm text-red-600">
-                    {error}
-                  </p>
-                )}
-
                 <button
                   type="submit"
-                  disabled={sending}
-                  className="flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-sm font-bold text-white transition hover:opacity-90 disabled:opacity-60"
+                  className="flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-sm font-bold text-white transition hover:opacity-90"
                   style={{ backgroundColor: brand.primaryColor }}
                 >
-                  {sending ? "Submitting..." : "Send Quote Request"}
-                  {!sending && <Send size={17} />}
+                  Preview Submission
+                  <Send size={17} />
                 </button>
 
                 <p className="text-center text-xs leading-5 text-slate-500">
-                  We'll use your details to respond to your enquiry.
+                  Demo only. Your details will not be submitted or stored.
                 </p>
               </form>
             </>

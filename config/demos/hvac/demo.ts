@@ -208,6 +208,7 @@ export const hvacDemos: Record<string, HVACDemoConfig> = {
         "Energy-Efficient Upgrades",
         "Other",
       ],
+      backgroundImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOM7Y1-GO8SqWGWBcDhOinZn20wx5B5JnbMRDxsEIVsWepuMsGAnZ9HOFc&s=10",
     },
 
     serviceAreas: [
@@ -226,7 +227,7 @@ export const hvacDemos: Record<string, HVACDemoConfig> = {
       title: "Local Climate Specialists",
       description:
         "Based in Perth and servicing surrounding suburbs. Contact us to confirm service availability for your location.",
-      image: img("photo-1497366754035-f200968a6e72"),
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-KM8ln4dszj9NcDturlUX7lHdnTVyWXfJi9swXziVM7jaRXxxDAqOSp4&s=10",
     },
 
     footer: {

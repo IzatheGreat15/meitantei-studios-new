@@ -98,6 +98,7 @@ export type HVACDemoConfig = {
     title: string;
     description: string;
     services: string[];
+    backgroundImage: string;
   };
 
   serviceAreas: string[];

@@ -1,3 +1,4 @@
+"use cilent"
 
 import HVACLandingPage from "@/app/components/demos/hvac/HVACDemo";
 import { hvacDemos } from "@/config/demos/hvac/demo";
