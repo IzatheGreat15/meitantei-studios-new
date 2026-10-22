@@ -1033,7 +1033,7 @@ function Footer({ config }: Props) {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <p>
-            © {new Date().getFullYear()} {brand.name}. {footer.copyright}
+            © 2026 {brand.name}. {footer.copyright}
           </p>
           <div className="flex gap-5">
             <Link href={footer.privacyUrl} className="hover:text-white">
