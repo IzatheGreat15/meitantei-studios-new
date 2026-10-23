@@ -30,3 +30,50 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@media print {
+  /* Hide everything on the page */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* Show only the quote content */
+  #quote-print-content,
+  #quote-print-content * {
+    visibility: visible !important;
+  }
+
+  /* Make the quote content fill the printed page */
+  #quote-print-content {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+  }
+
+  /* Avoid clipping and unnecessary scrollbars */
+  #quote-print-content * {
+    overflow: visible;
+  }
+
+  /* Keep table rows together when possible */
+  #quote-print-content tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #quote-print-content table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  @page {
+    margin: 15mm;
+  }
+}
