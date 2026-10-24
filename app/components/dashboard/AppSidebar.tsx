@@ -73,11 +73,9 @@ export default function AppSidebar({
             onClick={onCloseMobile}
             className="flex min-w-0 items-center gap-3"
           >
-            <span className={`flex size-9 shrink-0 items-center justify-center rounded-xl bg-blue-600 font-bold text-white ${
+            <img src="/profile.png" className={`flex size-9 shrink-0 items-center justify-center rounded-xl bg-blue-600 font-bold text-white ${
                 collapsed ? "md:hidden" : ""
-              }`}>
-              M
-            </span>
+              }`} />
 
             <span
               className={`font-bold text-slate-900 ${
